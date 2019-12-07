@@ -4,7 +4,7 @@ from .database import Base
 
 
 class Larp(Base):
-    __tablename__ = "larps"
+    __tablename__ = 'larps'
 
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String)
