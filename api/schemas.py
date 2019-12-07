@@ -1,6 +1,7 @@
 from datetime import datetime
+from typing import Optional
 
-from pydantic import UrlStr, BaseModel
+from pydantic import BaseModel, UrlStr
 
 
 class Larp(BaseModel):
@@ -10,7 +11,7 @@ class Larp(BaseModel):
     datetime_end: datetime
     website: UrlStr = None
     image: UrlStr = None
-    description: str = None
+    description: Optional[str] = None
 
     class Config:
         orm_mode = True
