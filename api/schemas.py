@@ -20,3 +20,13 @@ class Larp(BaseModel):
 class LarpDetail(Larp):
     id: int
     validated: bool
+
+
+class Token(BaseModel):
+    access_token: str
+    token_type: str
+
+
+class User(BaseModel):
+    username: str
+    password_hash: str

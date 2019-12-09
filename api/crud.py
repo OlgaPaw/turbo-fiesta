@@ -19,3 +19,15 @@ def create_larp(db: Session, larp: schemas.Larp) -> models.Larp:
     db.commit()
     db.refresh(db_larp)
     return db_larp
+
+
+def get_user(db: Session, user_name: int) -> models.User:
+    return db.query(models.User).filter(models.User.username == user_name).first()
+
+
+def create_user(db: Session, user: schemas.User) -> models.User:
+    db_user = models.User(**user.dict())
+    db.add(db_user)
+    db.commit()
+    db.refresh(db_user)
+    return db_user

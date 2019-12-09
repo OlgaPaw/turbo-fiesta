@@ -15,3 +15,12 @@ class Larp(Base):
     image = Column(String)
     description = Column(Text)
     validated = Column(Boolean, default=False)
+
+
+class User(Base):
+    __tablename__ = 'users'
+
+    id = Column(Integer, primary_key=True)
+    username = Column(Text, index=True)
+    password_hash = Column(Text)
+    enabled = Column(Boolean, default=False)
