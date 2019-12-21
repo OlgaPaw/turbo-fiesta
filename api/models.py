@@ -21,6 +21,6 @@ class User(Base):
     __tablename__ = 'users'
 
     id = Column(Integer, primary_key=True)
-    username = Column(Text, index=True)
+    username = Column(Text, index=True, unique=True)
     password_hash = Column(Text)
     enabled = Column(Boolean, default=False)

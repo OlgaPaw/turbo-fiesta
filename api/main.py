@@ -1,4 +1,4 @@
-from typing import List
+from typing import Dict, List
 
 from fastapi import Depends, FastAPI, HTTPException
 from fastapi.security.oauth2 import OAuth2PasswordBearer, OAuth2PasswordRequestForm
@@ -43,7 +43,7 @@ def read_larp(larp_id: int, db: Session = Depends(get_db)) -> models.Larp:
 
 
 @app.post('/login', response_model=schemas.Token)
-async def login(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)) -> None:
+async def login(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)) -> Dict:
     user = crud.get_user(db, form_data.username)
     if not user:
         raise HTTPException(status_code=401, detail=f'Invalid login data.')

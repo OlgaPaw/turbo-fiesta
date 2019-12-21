@@ -31,3 +31,10 @@ def create_user(db: Session, user: schemas.User) -> models.User:
     db.commit()
     db.refresh(db_user)
     return db_user
+
+
+def update_user(db: Session, user_id: int, user: schemas.User) -> models.User:
+    db_user = db.merge(models.User(**user.dict(), id=user_id))
+    db.commit()
+    db.refresh(db_user)
+    return db_user
