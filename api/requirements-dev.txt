@@ -1,3 +1,5 @@
 flake8==3.7.9
 mypy==0.750
+pytest==5.3.1
+requests==2.22.0
 yapf==0.29.0
